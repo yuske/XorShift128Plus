@@ -62,8 +62,8 @@ class FirefoxAndSafariRandomnessPredictor:
         self.__se_state0 = self.__se_state1  # sym_state0 = sym_state1
         self.__se_state1 = s1  # sym_state1 = s1
 
-    def __to_double(self, val: int):
+    def __to_double(self, val: int) -> float:
         return float(val & 0x1FFFFFFFFFFFFF) / (0x1 << 53)
 
-    def __recover_mantissa(self, double: float) -> float:
+    def __recover_mantissa(self, double: float) -> int:
         return double * (0x1 << 53)
